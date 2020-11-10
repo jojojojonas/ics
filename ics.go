@@ -40,7 +40,7 @@ func date(options Dates) string {
 }
 
 // Create an new isc File with event an time, email & description
-func Create(options Options) {
+func Create(options Options) (created bool, err error) {
 
 	// Last modified
 	modified := time.Now()
@@ -56,9 +56,12 @@ func Create(options Options) {
 	data := []byte(params)
 
 	// Write new file
-	err := ioutil.WriteFile(options.Filepath, data, 0664)
+	err = ioutil.WriteFile(options.Filepath, data, 0664)
 	if err != nil {
 		fmt.Println("Cannot create vcs file: ", err)
 	}
+
+	// Return finished
+	return true, nil
 
 }
