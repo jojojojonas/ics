@@ -19,28 +19,28 @@ type Dates struct {
 	Time string
 }
 
+// Format the date
 func date(options Dates) string {
 
-	// Date
-	date, err := time.Parse("20060201", options.Date)
+	// Parse date
+	date, err := time.Parse("01.02.2006", options.Date)
 	if err != nil {
 		fmt.Println("Cannot parse start date: ", err)
 	}
 
-	time, err := time.Parse("150405", options.Time)
+	// Parse time
+	time, err := time.Parse("15:04:05", options.Time)
 	if err != nil {
 		fmt.Println("Connot parse start time: ", err)
 	}
 
-	return fmt.Sprintf("%s%s", date.Format("20060201"), time.Format("20060201T150405"))
+	// Return the value
+	return fmt.Sprintf("%s%s", date.Format("20060201"), time.Format("T150405"))
 
 }
 
 // Create an new isc File with event an time, email & description
 func Create(options Options) {
-
-	// Filepath and filename
-	path := fmt.Sprintf("%s.ics", options.Filepath)
 
 	// Last modified
 	modified := time.Now()
@@ -56,7 +56,7 @@ func Create(options Options) {
 	data := []byte(params)
 
 	// Write new file
-	err := ioutil.WriteFile(path, data, 0664)
+	err := ioutil.WriteFile(options.Filepath, data, 0664)
 	if err != nil {
 		fmt.Println("Cannot create vcs file: ", err)
 	}
