@@ -9,4 +9,4 @@ First you have to install the package:
 
 Here is a small example how to create an ics file over the package:
 
-`‌ics.Create(ics.Options{"./termin.ics", ics.Dates{"11.11.2020", "23:15:00"}, ics.Dates{"11.11.2020", "23:45:00"}, "Updates Hilfe bei der Website", "Get some updates done!"})`
+`create, err := ‌ics.Create(ics.Options{"./termin.ics", ics.Dates{"11.11.2020", "23:15:00"}, ics.Dates{"11.11.2020", "23:45:00"}, "Updates Hilfe bei der Website", "Get some updates done!"})`
