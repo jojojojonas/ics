@@ -23,7 +23,7 @@ type Dates struct {
 func date(options Dates) (string, error) {
 
 	// Parse date
-	date, err := time.Parse("01.02.2006", options.Date)
+	date, err := time.Parse("02.01.2006", options.Date)
 	if err != nil {
 		return "", err
 	}
