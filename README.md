@@ -5,7 +5,7 @@ You want to create automatic events in .ics format? Then this is the right libra
 First you have to install the package:
 
 ```console
-import "github.com/jojojojonas/ics-creator"
+go get github.com/jojojojonas/ics-creator
 ```
 
 ## How to use?
